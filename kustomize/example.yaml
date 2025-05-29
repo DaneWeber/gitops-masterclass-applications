@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   source:
-    repoURL: https://github.com/<repo>
+    repoURL: https://github.com/DaneWeber/gitops-masterclass-applications
     targetRevision: main
     path: example/path
     ###

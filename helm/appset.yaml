@@ -25,7 +25,7 @@ spec:
             valueFiles:
             - $values/helm/values/common/values.yaml
             - $values/helm/values/env/{{.environment}}/values.yaml  
-        - repoURL: https://github.com/<repo>
+        - repoURL: https://github.com/DaneWeber/gitops-masterclass-applications
           targetRevision: main
           ref: values
       destination:

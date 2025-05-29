@@ -7,7 +7,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/<repo>
+    repoURL: https://github.com/DaneWeber/gitops-masterclass-applications
     targetRevision: main
     path: kustomize/env/overlays/dev/
   destination:
