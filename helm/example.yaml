@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-goofus
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/<repo>
+    targetRevision: main
+    path: path/to/chart
+    ###
+    # I advise putting Helm params here. Try to be more "GitOps" friendly
+    ###
+    helm:
+      parameters:
+      - name: "image"
+        value: christianh814/gobg:green
+      - name: "replicas"
+        value: "2"
+      ###
+      # There's a better way to do overrides per environment
+      ###
+      valuesObject:
+        service:
+          type: NodePort
+          port: 30001
+        image:
+          pullPolicy: IfNotPresent
+    ###
+  destination:
+    name: in-cluster
+    namespace: prod

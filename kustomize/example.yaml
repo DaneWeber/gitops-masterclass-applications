@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kustomize-goofus
+  namespace: argocd
+spec:
+  source:
+    repoURL: https://github.com/<repo>
+    targetRevision: main
+    path: example/path
+    ###
+    # I advice to NOT do kustomize configurations here
+    ###
+    kustomize:
+      namePrefix: dev-
+      images:
+      - christianh814/gobg:blue
+      patches:
+        - target:
+            kind: Deployment
+            name: gobg
+          patch: |-
+            - op: add
+              path: /spec/template/spec/nodeSelector/
+              value:
+                env: "pro"
+    ###
+  destination:
+    name: in-cluster
+    namespace: dev
