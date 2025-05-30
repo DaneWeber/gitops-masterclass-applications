@@ -1,9 +1,20 @@
-# Notes for Argo CD
+# Setup instructions
 
-Argo CD
+1. Go to https://github.com/akuity/gitops-masterclass-applications-template and click the green "Use this template" button to create your own repo.
+2. In your repo, click the green "Code" button and under the "Codespaces" tab click the green "Create codespace on main" button.
+3. The generated Codespace (which is essentially VS Code in your browser) will take a while to spin up as it creates new containers. Let it complete. Don't panic. Maybe click to watch the logs.
+4. When it comes up, the Codespace will already have Argo CD running. Go the to "Ports" tab (a sibling to the Terminal, Output, Problems, etc. tabs) and Argo CD should be availabe on the top row.
+5. Click on the globe icon (you may have to hover over various parts of the row) to open the port in a new browser tab so you can view the Argo CD GUI.
+6. From there, use `kubectl apply -f xyz.yaml` to make various changes that are reflected in the Argo CD GUI, but without actually using the GUI or the Argo CD CLI.
 
-U: admin
-P: password
+## Argo CD Access
+
+The URL will be something like `fictional-goldfish-9wgpr5qvwwcp74j-30179.app.github.dev`
+
+Defaults set for this instance:
+
+U: `admin`
+P: `password`
 
 ## syncOptions
 
